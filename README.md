@@ -1,8 +1,5 @@
 keriwarr.github.io
 ==================
 
-This is the home of my personal website. Nothing fancy to see here.
-
-### To-do
-
-Implement a blog, and host it somewhere so I can link to it!
+This repository contains my new, static website!
+It is hosted at keri.warr.ca and keriwarr.github.io

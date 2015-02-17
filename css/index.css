@@ -1,0 +1,21 @@
+.container {
+  top: 20%;
+}
+
+.container h1 {
+  font-size: 72px;
+  margin-bottom: 0;
+}
+
+.container p {
+  font-size: 28px;
+  margin-top: 0.3em;
+}
+
+.container ul li {
+  padding-right: 2em;
+}
+
+.container a {
+  font-size: 20px;  
+}
