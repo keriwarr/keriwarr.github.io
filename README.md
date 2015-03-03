@@ -5,4 +5,4 @@ This is the home of my personal website. Nothing fancy to see here.
 
 ### To-do
 
-Implement a blog, and host it somewhere so I can link to it!
+Implemented a blog in good ol' hard coded HTML. Now, I just have to actually write a blog post.
