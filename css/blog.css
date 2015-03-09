@@ -5,8 +5,9 @@
 
 .container h1 {
   font-size: 48px;
-  margin-top: 0.4em;
+  margin-top: 0;
   margin-bottom: 0;
+  padding-top: 0.4em;
 }
 
 .container ul {
@@ -28,7 +29,7 @@
 }
 
 .container p {
-  font-size: 10px;
+  font-size: 8px;
   margin: 0;
 }
 
