@@ -1,16 +1,16 @@
 .container {
   position: fixed;
-  top: 20%;
+  top: 25%;
 }
 
 .container h1 {
-  font-size: 72px;
+  font-size: 60px;
   margin-bottom: 0;
 }
 
 .container p {
-  font-size: 28px;
-  margin-top: 0.3em;
+  font-size: 16px;
+  margin-top: 2em;
 }
 
 .container ul li {
@@ -18,5 +18,5 @@
 }
 
 .container a {
-  font-size: 20px;  
+  font-size: 20px;
 }
