@@ -9,8 +9,6 @@
     <link rel="dns-prefetch" href="//google-analytics.com">
     <meta name="theme-color" content="#ffffff">
 
-{% seo %}
-
     <style type="text/css">
         a {
             background-color: transparent
@@ -23,7 +21,20 @@
 
         h1 {
             font-size: 2em;
-            margin: .67em 0
+            margin: .67em 0;
+            color: black
+        }
+
+        h1:hover {
+            color: darkblue
+        }
+
+        h1 a {
+            text-decoration: none
+        }
+
+        h1 a:hover {
+            text-decoration: underline
         }
 
         html {
@@ -79,7 +90,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <a href="{{ site.github.url }}"> <h1>keri warr</h1> </a>
+         <h1><a href="{{ site.github.url }}"></a>keri warr</a></h1>
       </header>
       <section>
 
