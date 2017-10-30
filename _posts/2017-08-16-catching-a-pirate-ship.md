@@ -1,5 +1,5 @@
 ---
-layout:    default
+layout:    post
 title:     "Catching a pirate ship"
 date:      2017-08-16
 tags:      puzzles
