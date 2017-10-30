@@ -3,7 +3,6 @@ layout:    default
 title:     "Catching a pirate ship"
 date:      2017-08-16
 tags:      puzzles
-published: false
 ---
 
 # Catching a pirate ship
