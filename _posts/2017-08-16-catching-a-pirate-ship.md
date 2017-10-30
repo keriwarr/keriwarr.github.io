@@ -1,8 +1,8 @@
 ---
-layout:    post
-title:     "Catching a pirate ship"
-date:      2017-08-16
-tags:      puzzles
+layout: post
+title:  "Catching a pirate ship"
+date:   2017-08-16
+tags:   puzzles
 ---
 
 # Catching a pirate ship
