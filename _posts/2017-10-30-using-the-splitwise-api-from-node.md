@@ -38,9 +38,12 @@ Get your temporary access token:
 
 ```
 let accessToken = null;
-oauth2.getOAuthAccessToken('', { grant_type: 'client_credentials' }, token => {
-    accessToken = token;
-})
+oauth2.getOAuthAccessToken('',
+    { grant_type: 'client_credentials' },
+    token => {
+        accessToken = token;
+    }
+)
 ```
 
 ## Step three
@@ -48,11 +51,15 @@ oauth2.getOAuthAccessToken('', { grant_type: 'client_credentials' }, token => {
 Make a call!
 
 ```
-oauth2.get('https://secure.splitwise.com/api/v3.0/get_current_user', accessToken, body => {
-    const user = JSON.parse(body).user;
+const APIURL = 'https://secure.splitwise.com/api/v3.0/';
+oauth2.get(`${APIURL}get_current_user/`,
+    accessToken,
+    body => {
+        const user = JSON.parse(body).user;
 
-    // do stuff with `user`
-});
+        // do stuff with `user`
+    }
+);
 ```
 
 Remember that you can only make this call after `accessToken` is assigned in step two.
@@ -71,22 +78,37 @@ const oauth2 = new OAuth2(
   null,
 );
 
-
+const APIURL = 'https://secure.splitwise.com/api/v3.0/';
 let accessToken = null;
-oauth2.getOAuthAccessToken('', { grant_type: 'client_credentials' }, token => {
-    accessToken = token;
 
-    oauth2.get('https://secure.splitwise.com/api/v3.0/get_current_user', accessToken, body => {
-        const user = JSON.parse(body).user;
+oauth2.getOAuthAccessToken('',
+    { grant_type: 'client_credentials' },
+    (_, token) => {
+        accessToken = token;
 
-        // do stuff with `user`
-    });
-})
+        oauth2.get(`${APIURL}get_current_user/`,
+            accessToken,
+            (_, body) => {
+                const user = JSON.parse(body).user;
+
+                // do stuff with `user`
+            }
+        );
+    }
+)
 ```
+
+This nested callback pattern doesn't look very nice though, so....
 
 ## Using Promises instead of callbacks
 
 Promises are way better than callbacks. Check it out!
+{link to further learning}
+brief description of the fact that we can use util.promisify becuase these methods adhere to Node callback standard
+
+### Alternatively, we can pass in lambdas to promisify to make our promise-returning methods even simpler to use...:
+
+## Example without importing any packages?
 
 ## Using cURL
 
