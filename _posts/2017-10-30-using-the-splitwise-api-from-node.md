@@ -24,6 +24,7 @@ There are three steps to using the API:
 Create an OAuth object using the credentials provided to you by Splitwise:
 
 ```javascript
+{% highlight javascript %}
 const SPLITWISE_CONSUMER_KEY = 'your key here';
 const SPLITWISE_CONSUMER_SECRET = 'your secret here';
 const oauth2 = new OAuth2(
@@ -34,6 +35,7 @@ const oauth2 = new OAuth2(
   'oauth/token',
   null,
 );
+{% endhighlight %}
 ```
 
 ## Step two
@@ -41,12 +43,14 @@ const oauth2 = new OAuth2(
 Get your temporary access token:
 
 ```javascript
+{% highlight javascript %}
 oauth2.getOAuthAccessToken('',
   { grant_type: 'client_credentials' },
   token => {
     console.log(token);
   },
 )
+{% endhighlight %}
 ```
 
 ## Step three
@@ -54,6 +58,7 @@ oauth2.getOAuthAccessToken('',
 Make a call!
 
 ```javascript
+{% highlight javascript %}
 const APIURL = 'https://secure.splitwise.com/api/v3.0/';
 oauth2.get(`${APIURL}get_current_user/`,
   accessToken,
@@ -62,6 +67,7 @@ oauth2.get(`${APIURL}get_current_user/`,
     console.log(user);
   },
 );
+{% endhighlight %}
 ```
 
 Remember that you can only make this call after `accessToken` is assigned in step two.
@@ -69,6 +75,7 @@ Remember that you can only make this call after `accessToken` is assigned in ste
 ## All together
 
 ```javascript
+{% highlight javascript %}
 const { OAuth2 } = require('oauth');
 
 const SPLITWISE_CONSUMER_KEY = 'your key here';
@@ -96,6 +103,7 @@ oauth2.getOAuthAccessToken('',
     );
   },
 );
+{% endhighlight %}
 ```
 
 This nested callback pattern doesn't look very nice though, so....
@@ -107,6 +115,7 @@ Promises are way better than callbacks. Check it out!
 brief description of the fact that we can use util.promisify becuase these methods adhere to Node callback standard
 
 ```javascript
+{% highlight javascript %}
 const { OAuth2 } = require('oauth');
 const { promisify } = require('util');
 
@@ -136,6 +145,7 @@ getOAuthAccessToken()
   .then(getCurrentUser)
   .then(JSON.parse)
   .then(data => console.log(data.user));
+{% endhighlight %}
 ```
 
 ## Using cURL
