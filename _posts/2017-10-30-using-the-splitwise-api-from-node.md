@@ -23,7 +23,6 @@ There are three steps to using the API:
 
 Create an OAuth object using the credentials provided to you by Splitwise:
 
-```javascript
 {% highlight javascript %}
 const SPLITWISE_CONSUMER_KEY = 'your key here';
 const SPLITWISE_CONSUMER_SECRET = 'your secret here';
@@ -36,13 +35,11 @@ const oauth2 = new OAuth2(
   null,
 );
 {% endhighlight %}
-```
 
 ## Step two
 
 Get your temporary access token:
 
-```javascript
 {% highlight javascript %}
 oauth2.getOAuthAccessToken('',
   { grant_type: 'client_credentials' },
@@ -51,13 +48,11 @@ oauth2.getOAuthAccessToken('',
   },
 )
 {% endhighlight %}
-```
 
 ## Step three
 
 Make a call!
 
-```javascript
 {% highlight javascript %}
 const APIURL = 'https://secure.splitwise.com/api/v3.0/';
 oauth2.get(`${APIURL}get_current_user/`,
@@ -68,13 +63,11 @@ oauth2.get(`${APIURL}get_current_user/`,
   },
 );
 {% endhighlight %}
-```
 
 Remember that you can only make this call after `accessToken` is assigned in step two.
 
 ## All together
 
-```javascript
 {% highlight javascript %}
 const { OAuth2 } = require('oauth');
 
@@ -104,7 +97,6 @@ oauth2.getOAuthAccessToken('',
   },
 );
 {% endhighlight %}
-```
 
 This nested callback pattern doesn't look very nice though, so....
 
@@ -114,7 +106,6 @@ Promises are way better than callbacks. Check it out!
 {link to further learning}
 brief description of the fact that we can use util.promisify becuase these methods adhere to Node callback standard
 
-```javascript
 {% highlight javascript %}
 const { OAuth2 } = require('oauth');
 const { promisify } = require('util');
@@ -146,7 +137,6 @@ getOAuthAccessToken()
   .then(JSON.parse)
   .then(data => console.log(data.user));
 {% endhighlight %}
-```
 
 ## Using cURL
 
