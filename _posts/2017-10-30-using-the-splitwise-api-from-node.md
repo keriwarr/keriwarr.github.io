@@ -24,8 +24,8 @@ There are three steps to using the API:
 Create an OAuth object using the credentials provided to you by Splitwise:
 
 ```javascript
-const SPLITWISE_CONSUMER_KEY = "your key here";
-const SPLITWISE_CONSUMER_SECRET = "your secret here";
+const SPLITWISE_CONSUMER_KEY = 'your key here';
+const SPLITWISE_CONSUMER_SECRET = 'your secret here';
 const oauth2 = new OAuth2(
   SPLITWISE_CONSUMER_KEY,
   SPLITWISE_CONSUMER_SECRET,
@@ -41,12 +41,11 @@ const oauth2 = new OAuth2(
 Get your temporary access token:
 
 ```javascript
-let accessToken = null;
 oauth2.getOAuthAccessToken('',
   { grant_type: 'client_credentials' },
   token => {
-    accessToken = token;
-  }
+    console.log(token);
+  },
 )
 ```
 
@@ -60,9 +59,8 @@ oauth2.get(`${APIURL}get_current_user/`,
   accessToken,
   body => {
     const user = JSON.parse(body).user;
-
     console.log(user);
-    }
+  },
 );
 ```
 
@@ -73,8 +71,9 @@ Remember that you can only make this call after `accessToken` is assigned in ste
 ```javascript
 const { OAuth2 } = require('oauth');
 
-const SPLITWISE_CONSUMER_KEY = "your key here";
-const SPLITWISE_CONSUMER_SECRET = "your secret here";
+const SPLITWISE_CONSUMER_KEY = 'your key here';
+const SPLITWISE_CONSUMER_SECRET = 'you\'re secret here';
+const APIURL = 'https://secure.splitwise.com/api/v3.0/';
 
 const oauth2 = new OAuth2(
   SPLITWISE_CONSUMER_KEY,
@@ -85,24 +84,18 @@ const oauth2 = new OAuth2(
   null,
 );
 
-const APIURL = 'https://secure.splitwise.com/api/v3.0/';
-let accessToken = null;
-
 oauth2.getOAuthAccessToken('',
-    { grant_type: 'client_credentials' },
-    (_, token) => {
-        accessToken = token;
-
-        oauth2.get(`${APIURL}get_current_user/`,
-            accessToken,
-            (_, body) => {
-                const user = JSON.parse(body).user;
-
-                console.log(user);
-            }
-        );
-    }
-)
+  { grant_type: 'client_credentials' },
+  (_, token) => {
+    oauth2.get(`${APIURL}get_current_user/`,
+      token,
+      (_, body) => {
+        const user = JSON.parse(body).user;
+        console.log(user);
+      },
+    );
+  },
+);
 ```
 
 This nested callback pattern doesn't look very nice though, so....
@@ -117,10 +110,9 @@ brief description of the fact that we can use util.promisify becuase these metho
 const { OAuth2 } = require('oauth');
 const { promisify } = require('util');
 
-const SPLITWISE_CONSUMER_KEY = "your key here";
-const SPLITWISE_CONSUMER_SECRET = "your secret here";
+const SPLITWISE_CONSUMER_KEY = 'your key here'
+const SPLITWISE_CONSUMER_SECRET = 'your secret here';
 const APIURL = 'https://secure.splitwise.com/api/v3.0/';
-let accessToken = null;
 
 const oauth2 = new OAuth2(
   SPLITWISE_CONSUMER_KEY,
@@ -134,10 +126,10 @@ const oauth2 = new OAuth2(
 const getOAuthAccessToken = promisify(
   oauth2.getOAuthAccessToken.bind(
     oauth2, '', { grant_type: 'client_credentials' }
-  )
+  ),
 );
 const getCurrentUser = promisify(
-  oauth2.get.bind(oauth2, `${APIURL}get_current_user/`)
+  oauth2.get.bind(oauth2, `${APIURL}get_current_user/`),
 );
 
 getOAuthAccessToken()
