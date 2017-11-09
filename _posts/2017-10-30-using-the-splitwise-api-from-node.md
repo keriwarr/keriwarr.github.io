@@ -10,7 +10,7 @@ tags:   coding, splitwise, javascript, node
 **tl;dr** There is a full, usable code example [below](#all-together).
 Note: All code examples are [MIT licensed](https://gist.github.com/keriwarr/a0075615e5335476a6838ec472794dd8#file-license-txt).
 
-[Splitwise](https://www.splitwise.com/) is a really cool tool for splitting expenses with your friends. This past weekend I was tinkering around with an idea that involved querying the [Splitwise API](http://dev.splitwise.com/), but unfortunately, there are a couple hurdles involved with using it, and I couldn't find any example code in JavaScript. So, if you're like me and just want to use the darn API, here are a couple straightforward examples of how you can do that!
+[Splitwise](https://www.splitwise.com/) is a really cool tool for splitting expenses with your friends. This past weekend I was tinkering around with an idea that involved querying the [Splitwise API](http://dev.splitwise.com/), but unfortunately there are a couple hurdles involved with using it, and I couldn't find any example code in JavaScript. So, if you're like me and just want to use the darn API, here are a couple straightforward examples of how you can do that!
 
 ## Set-up
 
