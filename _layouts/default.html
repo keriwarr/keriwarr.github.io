@@ -115,6 +115,14 @@
     {{ content }}
 
     <script>!function(e){var t=e.getElementsByTagName("meta"),n=function(e){for(var n=0;n<t.length;n++)"viewport"==t[n].name&&(t[n].content=e)},i=function(){n("width=device-width, minimum-scale=1.0, maximum-scale=1.0")};navigator.userAgent.match(/iPhone/i)&&(i(),e.addEventListener("touchstart",function(){n("width=device-width, minimum-scale=0.25, maximum-scale=1.6")},!1),e.addEventListener("touchend",function(){i()},!1))}(document); </script>
-    <script>(function (b, o, i, l, e, r) { b.GoogleAnalyticsObject = l; b[l] || (b[l] = function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date; e = o.createElement(i); r = o.getElementsByTagName(i)[0]; e.src = 'https://www.google-analytics.com/analytics.js'; r.parentNode.insertBefore(e, r) }(window, document, 'script', 'ga')); ga('create', 'UA-56091605-1', 'auto'); ga('send', 'pageview'); </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56091605-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-56091605-1');
+    </script>
 </body>
 </html>
