@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en-CA">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>keri warr</title>
-    <meta name="description" content="I'm a computer science student, a rock climber, an aspiring effective altruist, and a software developer.">
+    <meta name="description"
+        content="I'm a computer science student, a rock climber, an aspiring effective altruist, and a software developer.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
 
@@ -70,26 +72,31 @@
             body {
                 font-size: 1.1em;
             }
+
             ul {
                 line-height: 1.6;
             }
+
             .post {
                 margin-left: 2em;
             }
         }
 
         @media print {
+
             *,
             :after,
             :before {
-                color: #000!important;
+                color: #000 !important;
             }
+
             a[href]:after {
                 content: " (" attr(href) ")";
             }
         }
 
-        pre, p code {
+        pre,
+        p code {
             border: 2px solid #ccc;
             border-radius: 0.5em;
             background-color: #eee;
@@ -107,11 +114,34 @@
         .gist .gist-meta {
             padding: 4px 10px !important;
         }
+
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+
+        th,
+        td {
+            padding: 4px 8px;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
     </style>
 </head>
+
 <body>
     <h1><a href="{{ site.github.url }}">keri warr</a></h1>
 
     {{ content }}
 </body>
+
 </html>
