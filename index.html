@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  keri warr
+title: keri warr
 ---
 
 <div>
@@ -24,4 +24,10 @@ title:  keri warr
         <br />
         altruism, alphabets, alliteration, & irony
     </p>
+    <p>my stuff:</p>
+    <ul>
+        {% for post in site.posts %}
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
 </div>
